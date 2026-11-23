@@ -9,8 +9,13 @@ Frontend web application (`secure-doc-frontend`) built with **Next.js**, **React
 - **Styling:** Tailwind CSS (`^3.4.17`), PostCSS (`^8.5.23`), Autoprefixer (`^10.4.21`)
 - **Container & Setup:** Docker (`Dockerfile`), `setup-frontend.cmd`
 
+## Database Schema (ERD)
+![Entity Relationship Diagram](./public/ERD.webp)
+
 ## Project Structure
 ```text
+├── public/                 # Static assets (`ERD.webp`, images)
+├── src/                    # Next.js App Router pages & components
 ├── .env.local.example      # Frontend environment variable template
 ├── Dockerfile              # Container build configuration
 ├── next-env.d.ts           # Next.js TypeScript environment declarations
