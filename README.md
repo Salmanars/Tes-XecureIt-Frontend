@@ -1,7 +1,7 @@
-@'
+$readme = @'
 # Tes XecureIt - Frontend
 
-Frontend web application built with Next.js, TypeScript, and Tailwind CSS featuring role-based access (`OWNER`, `EDITOR`, `VIEWER`) and SHA-256 document verification.
+Frontend web application (`secure-doc-frontend`) built with **Next.js**, **React**, **TypeScript**, and **Tailwind CSS** featuring role-based access (`OWNER`, `EDITOR`, `VIEWER`) and SHA-256 document verification.
 
 ## Tech Stack
 - **Framework & UI:** Next.js (`^16.4.6`), React (`^19.1.0`)
@@ -20,9 +20,37 @@ Frontend web application built with Next.js, TypeScript, and Tailwind CSS featur
 ├── setup-frontend.cmd      # Windows setup helper script
 ├── tailwind.config.ts      # Tailwind CSS configuration
 └── tsconfig.json           # TypeScript compiler configuration
+```
+
+## Environment Variables
+Copy `.env.local.example` to `.env.local` before running the app:
+
+```powershell
+Copy-Item .env.local.example .env.local
+```
+
+Variables in `.env.local.example`:
+- `NEXT_PUBLIC_API_URL` (`http://localhost:4000/api`)
+- `NEXT_PUBLIC_SSE_URL` (`http://localhost:4000/api/documents`)
 
 ## Getting Started
-
 ```bash
 npm install
+npm run lint
 npm run dev
+```
+
+Build and run for production:
+```bash
+npm run build
+npm start
+```
+
+Run with Docker:
+```bash
+docker build -t tes-xecureit-frontend .
+docker run -p 3000:3000 --env-file .env.local tes-xecureit-frontend
+```
+'@
+
+Set-Content -Path .\README.md -Value $readme -Encoding utf8
